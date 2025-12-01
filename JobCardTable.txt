@@ -1,0 +1,96 @@
+CREATE TABLE [dbo].[JobCardData](
+	[JobCardID] [int] NOT NULL,
+	[JobCardTypeName] [nvarchar](100) NOT NULL,                -- Type of the Job Card i.e., New Job , Follow up , Comeback
+	--[OldJobCardID] [int] NULL,
+	[WorkshopID] [int] NOT NULL,
+	[CustomerID] [int] NOT NULL,                               -- Customer ID 
+	[VehicleID] [int] NOT NULL,                                -- VehicleID of the Customer
+	[Mileage] [int] NULL,
+	[MileageUnit] [smallint] NULL,                             -- MileageUnit i.e.,  Miles, Km
+	[PaymentMethodName] [nvarchar](100) NULL,                  -- Payment Method like cash, credit, Card, Cash & Card
+	[JobCardStatusName] [nvarchar](100) NULL,                  -- Job card Status i.e., New, Inprogress,InCompleted, Paid, Delivered, Approval, InPricing
+	[JobOpenDate] [datetime] NULL,
+	[JobCloseDate] [datetime] NULL,
+	[VehicleDeliveryDate] [datetime] NULL,                     -- For those cases when Vehicle will deliver on the next day for fleet or company, or when more than one day work will done on the Vehicle
+	[PriorityTypeName] [nvarchar](100) NULL,                   -- Priority Type for the Job Card is Standard, VIP, Employee
+	[ContactPersonFirstName] [nvarchar](150) NULL,             -- In Case of Company, Contact Person Name will be require
+	[ContactPersonLastName] [nvarchar](150) NULL,
+	[ContactPersonMobile] [nvarchar](15) NULL,
+	[ContactPersonPhone] [nvarchar](15) NULL,
+	[Notes] [nvarchar](3000) NULL,                             -- Optional Note entered for the Job Card
+	[ApprovalSignatureURL] [nvarchar](500) NULL,               -- When approve the Service, Signature is given, then update the JobCard
+	--[ApprovalSignatureOn] [datetime] NULL,
+	[IsUsedParts] [bit] NULL,                                  -- Is Used parts required for this Job Card
+	[IsRegularInspection] [bit] NULL,                          -- Is Job Card is created for the regular Inspection of the Vehicle
+	[FuelTankMeterImageURL] [nvarchar](500) NULL,              -- Fuel Tank Meter Imgae URL , Purpose is to make sure transparency between customer and workshop
+	[CreatedBy] [int] NOT NULL,
+	[CreatedOn] [datetime] NOT NULL,
+	[ModifiedOn] [datetime] NULL,
+	[ModifiedBy] [int] NULL,
+	[IsDeleted] [bit] NOT NULL,
+	[JobCardNumber] [nvarchar](50) NOT NULL,                   -- A number is assigned to the Job Card that is unique
+	[PreferredTeamLeadName] [nvarchar](100) NULL,              -- Team Lead of the Employee
+	[PreferredForemanName] [nvarchar](200) NULL,               -- Foreman who handle the team 
+	[AdvisorName] [nvarchar](200) NULL,                        -- Advisor Name who handles the all journey of the customer in the Workshop
+	[FuelTankReading] [float] NULL,                            -- Reading of the Fuel Tank
+	[ServiceTypeName] [nvarchar](100) NULL,                    -- Type of the Service i.e., Repair, Inspection
+	[PreviousJobComments] [nvarchar](1000) NULL,               -- Previous Job Card Comments 
+	[Reference] [nvarchar](300) NULL,                          -- Reference Person Name who refer the customer , It use for benefit the referer and customer as well.
+	[SupervisorName] [int] NULL,                               -- Supervisor who supervise the Job Card and manage the QA Process and other processes as well.
+	[CardNumber] [nvarchar](30) NULL,
+	[MechanicTypeName] [nvarchar](100) NULL,                   -- It is type of Technician i.e., Mechanical
+	[ElectricianTypeName] [nvarchar](100) NULL,				   -- It is type of Technician i.e., Electrical
+	[OtherTechTypeName] [nvarchar](100) NULL,				   -- It is type of Technician i.e., Other
+	[IsIRCompleted] [bit] NULL,
+	[InspectionComments] [nvarchar](500) NULL,
+	[InspectionSignatureURL] [nvarchar](500) NULL,
+	[KeyStatusName] [nvarchar](100) NULL,                      -- Status Represent the keys of the Vehicle i.e., Received from customer , Handed over to customer             
+	[IsMileageVerified] [bit] NULL,                            -- Is Mileage Verified For the Warranty
+	[MileageImageURL] [nvarchar](500) NULL,                    
+	[IsTaxFree] [bit] NULL,                                    -- If Customer or Vehicle is TaxFree, Then upload the document for verification
+	[TaxDocumentURL] [nvarchar](500) NULL,                     -- Tax Free Document URL 
+	[TaxFreeNote] [nvarchar](1000) NULL,                       -- Tax Free Note for the Tax Free Vehicle
+	[IsTaxFreeApproved] [bit] NULL,                            -- IsTaxFree Job Approved 
+	[InternalTasksCost] [float] NULL,                          -- In Case of internal repair, Internal Cost will be calculated
+	[TotalPartsNetAmount] [float] NULL,                        -- Total Parts Net Amount included tax and profit
+	[TotalPartsDiscount] [float] NULL,                         -- Total Discount on the Parts given by the Part Manager
+	[AdditionalTaskDiscount] [float] NULL,                     -- Additional Task Discount , if Csutomer is regular or something else
+	[TotalCost] [float] NULL,                                  -- Total Costs after deduction of discount and additinal discount
+	[ExternalTasksCost] [float] NULL,                          -- In Case of external Job Apply, External Cost will be measured 
+	[AdditionalPartDiscount] [float] NULL,                     -- Additional Part Discount given to the Customer when PO will create
+	[TotalTasksDiscount] [float] NULL,                         -- Total Discounts on the tasks added in the JobCard for the Customer
+	[VehicleFront] [nvarchar](500) NULL,                       -- Vehcile Front Image 
+	[IsVICompleted] [bit] NULL,                                -- Is Visual Inspection Completed
+	[Cardno] [int] NULL,
+	[tr_ser] [int] NULL,
+	[OldJobCardNumber] [nvarchar](50) NULL,                    -- Old Job Card Number in the case of Job Comeback 
+	[VINImageURL] [nvarchar](500) NULL,                        
+	[IsReturned] [bit] NULL,                                   -- Is keys returned
+	[LaborPrice] [float] NULL,                                 -- labour Price for the Jobcard
+	[InspectionPrice] [float] NULL,                    
+	[InspectionTechName] [nvarchar](200) NULL,
+	[BodyRepairTechName] [nvarchar](200) NULL,
+	[SparePartTechName] [nvarchar](200) NULL,
+	[ProfusionJobCardNo] [nvarchar](200) NULL,
+	[IsHoldOn] [bit] NULL,                                     -- Is Job Card hold on due to certain condition or may be some parts delivering issue
+	[IRCompletedTime] [datetime] NULL,
+	[IsJobAppearToCashier] [bit] NULL,
+	[TechnicianNote] [nvarchar](500) NULL,
+	[DeliveryTime] [datetime] NULL,
+	[IsHistoryCard] [bit] NULL,
+	[WhatsappMessage] [bit] NULL,
+	[IsWhtspMessageEnabled] [bit] NULL,
+	--[EncrJobCardID]  AS (CONVERT([varchar](200),hashbytes('SHA2_256',hashbytes('SHA2_256',CONVERT([nvarchar](200),[JobCardID]))),(1))) PERSISTED,
+	[IsCustomerReportSent] [bit] NULL,
+	[WhatsappSourceTypeName] [nvarchar](100) NULL,
+	[DoozUserName] [nvarchar](200) NULL,
+	[DoozStatusName] [nvarchar](200) NULL,
+	[TotalDiscountAmount] [float] NULL,
+	[PrintOfferInvoiceUrl] [nvarchar](500) NULL,
+	[ApprovedInvoicedUrl] [nvarchar](500) NULL,
+	[VehicleRear] [nvarchar](500) NULL,
+	[VehicleLeft] [nvarchar](1000) NULL,
+	[VehicleRight] [nvarchar](1000) NULL,
+	[CompanyID] [int] NULL
+)
+GO
