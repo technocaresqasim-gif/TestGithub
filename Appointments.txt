@@ -1,0 +1,61 @@
+CREATE TABLE [dbo].[AppointmentData](
+	[AppointmentID] [int] NOT NULL,
+	[LicensePlateFront] [nvarchar](500) NULL,               -- Front plate image 
+	[LicensePlateBack] [nvarchar](500) NULL,                -- Back plate image 
+	[VehicleFront] [nvarchar](500) NULL,                    -- Vehicle Overall front Image
+	[Mileage] [int] NULL,                                   -- Distance covered by the vehicle
+	[MileageUnitTypeName] [nvarchar](100) NULL,             -- Unit type of the distance i.e., km,miles
+	[MileageImageURL] [nvarchar](500) NULL,                 -- 
+	[JobCardID] [int] NULL, 						        
+	[VehicleRear] [nvarchar](500) NULL,                     -- Vehicle Rear Side Image 
+	[VehicleRight] [nvarchar](500) NULL,                    -- Vehicle Right Side Image
+	[VehicleLeft] [nvarchar](500) NULL,                     -- Vehicle Left Side Image 
+	[VehicleInside] [nvarchar](500) NULL,                   -- Vehicle Inside Image
+	[VehicleRoof] [nvarchar](500) NULL,                     -- Vehicle Roof Image
+	[Dashboard] [nvarchar](500) NULL,                       -- Image of the Dashbaord
+	[VehicleRim1] [nvarchar](500) NULL,                     -- vehicle Rim = Tyre Image
+	[VehicleRim2] [nvarchar](500) NULL,				  
+	[VehicleRim3] [nvarchar](500) NULL,
+	[VehicleRim4] [nvarchar](500) NULL,
+	[CustomerMobile] [nvarchar](500) NULL,
+	[PlateNumber] [nvarchar](500) NULL,
+	[WorkshopID] [int] NULL,
+	[FuelTankReading] [int] NULL,                           -- Reading of the Fuel Tank
+	[VehicleID] [int] NULL,
+	[AppointmentDateTime] [datetime] NULL,
+	[Note] [nvarchar](500) NULL,                            -- Note written by the customer on the appointment time
+	[InspectionSignatureURL] [nvarchar](500) NULL,          -- Signature of the Customer at the time of submission of the Inspection Results
+	[BodyTypeName] [nvarchar](100) NULL,                    -- Table (ObjectType) Body Type SUV , Cross-over, Pick-up etc
+	[CustomerName] [nvarchar](500) NULL,
+	[CustomerPriorityTypeName] [nvarchar](100) NULL,        -- Customer Priority Type ( Standard, VIP, Employee)  Table = ObjectType
+	[AppointmentTypeName] [nvarchar](100) NULL,             -- Appointment Type (Walk-in, View Slots) Table = ObjectType
+	[CustomerFirstName] [nvarchar](1000) NULL,              
+	[CustomerLastName] [nvarchar](1000) NULL,			    
+	[CustomerCountryCode] [nvarchar](100) NULL,             -- Country Code like  (+962 for Jordan)
+	[MakeName] [nvarchar](200) NULL,                        -- Vehicle Make Name from Table ( Make)
+	[ModelName] [nvarchar](200) NULL,                       -- Vehcile Model Name from Table (Model)
+	[ProductionYear] [int] NULL,                            -- The year in which Vehicle Produced 
+	[GroupName] [nvarchar](500) NULL,                       -- GroupName for Vehicles Like BM34, BM23
+	[EngineTypeName] [nvarchar](100) NULL,                  -- Type of Engine in Vehicle,Gasoline,Diesel,Hybrid,Electric,Plug-In,Hybrid,Petrol
+	[ServiceTypeName] [nvarchar](100) NULL,                 -- Service Type i.e., Inspection, Repair
+	--[AppointmentSlotID] [int] NULL,					    
+	[AppointmentDay] [nvarchar](100) NULL,                  -- Appointment Day 
+	[AppointmentTime] [time](7) NULL,                       -- Appointment Time
+	[VIN] [nvarchar](50) NULL,                              -- Vehicle Identification Number of the Vehicle
+	[SeriesID] [nvarchar](100) NULL,                        -- Series ID of the Vehicle Tesla 3, Tesla Y
+	[IsAdvisorNotified] [bit] NULL,                         -- To check the advisor is notified or not for this Appointment 
+	[DoozUserID] [int] NULL,							    
+	[IsCleared] [bit] NULL,								    
+	[IsWhatsappMsgSent] [bit] NULL,                         -- Is Whatsapp message sent to the person who book the appointment 
+	[PromoCode] [nvarchar](255) NULL,                       -- Promotion Code (Dooz 100) for Marketing purposes to give discount or percentage off just like Voucher 
+	[DiscountPercentage] [int] NULL,                        
+	[PartDiscountPercentage] [int] NULL,                    -- Disocunt in the Automotive Part 
+	[LaborDiscountPercentage] [int] NULL,                   -- Labour Discount Percentage                 
+	[CreatedOn] [datetime] NOT NULL,					    
+	[CreatedBy] [int] NOT NULL,							    
+	[ModifiedOn] [datetime] NULL,						    
+	[ModifiedBy] [int] NULL,							    
+	[IsDeleted] [bit] NOT NULL,							    
+	[CompanyID] [INT] NULL                                  -- To check how many appointments booked for the particular Company
+)
+GO
